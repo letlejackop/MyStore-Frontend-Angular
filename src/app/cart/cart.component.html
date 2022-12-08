@@ -1,0 +1,34 @@
+<div *ngIf="empty === false; else elseBlock" class="cart-container">
+    <div class="cart-item-details">
+        <div *ngFor="let item of cart" class="cart-item">
+            <img src="{{item.url}}" alt="">
+            <div class="cart-item-details">
+                <h3>{{item.name}}</h3>
+                <p>${{item.price}}</p>
+                <p>amount</p>
+                <input type="number" min="1" max="10" value="{{item.amount}}" class="select-input form-control"
+                    name="amount" [(ngModel)]="item.amount" (ngModelChange)="amountChangeFn($event)">
+                <button (click)="onClick(item)" class="btn btn-danger">delete</button>
+            </div>
+        </div>
+        <p>Total {{total}}</p>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-margin">
+        <p>Full name</p>
+        <input type="text" placeholder="Your full name" class="select-input form-control" required minlength="5"
+            [(ngModel)]="name" name="name">
+        <p>address</p>
+        <input type="text" placeholder="" required minlength="5" class="select-input form-control" [(ngModel)]="address"
+            name="address">
+        <p>Credit card number</p>
+        <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" class="select-input form-control" required minlength="16"
+            maxlength="16" [(ngModel)]="cardNum" name="cardNum">
+        <br>
+        <input type="submit" class="btn btn-secondary" [disabled]="form.invalid" value="Submit">
+    </form>
+</div>
+
+
+<ng-template #elseBlock>
+    <div class="empty-cart-message">No Items Added.</div>
+</ng-template>
