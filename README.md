@@ -1,5 +1,5 @@
-# MyStore
-This project is a front-end project using angular, the users can add items to a cart then checkout. 
+# description
+This project is a front-end project using angular, it is an eCommerce website where the users can add items to a cart and delete them from the cart then checkout. 
 
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 

@@ -17,4 +17,7 @@ export class ProductListComponent implements OnInit {
     });
 
   }
+  addItemToCartAlert(itemName: string) {
+    alert(`added ${itemName} succesfully`)
+  }
 }

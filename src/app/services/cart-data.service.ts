@@ -12,10 +12,27 @@ export class CartDataService {
   cart: Cart[] = []
 
   EmptyHandle(): boolean {
+    this.checkDuplicates()
     if (this.cart.length == 0) {
       return true
     } else {
       return false
+    }
+  }
+  checkDuplicates(): void {
+    if (this.cart.length == 0) {
+      return;
+    }
+    if (this.cart.length == 1) {
+      return;
+    }
+    let temp = this.cart[this.cart.length - 1].id
+    for (let i = 0; i < this.cart.length - 1; i++) {
+      if (this.cart[i].id === temp) {
+        this.cart[i].amount++;
+        this.cart.pop();
+        break
+      }
     }
   }
 
@@ -31,7 +48,6 @@ export class CartDataService {
   }
   deleteItem(item: Cart) {
     this.cart = this.cart.filter(it => it.id !== item.id)
-    console.log(this.cart.length)
   }
 }
 

@@ -21,8 +21,9 @@
         <input type="text" placeholder="" required minlength="5" class="select-input form-control" [(ngModel)]="address"
             name="address">
         <p>Credit card number</p>
-        <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" class="select-input form-control" required minlength="16"
-            maxlength="16" [(ngModel)]="cardNum" name="cardNum">
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            placeholder=" XXXX-XXXX-XXXX-XXXX" class="select-input form-control" required minlength="16" maxlength="16"
+            [(ngModel)]="cardNum" name="cardNum">
         <br>
         <input type="submit" class="btn btn-secondary" [disabled]="form.invalid" value="Submit">
     </form>

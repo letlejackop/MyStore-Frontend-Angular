@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
     this.cartData.deleteItem(item)
     this.total = this.cartData.CalcTotal()
     this.empty = this.cartData.EmptyHandle()
+    alert(item.name + ", was deleted succesfully")
   }
   name: string = "";
   address: string = "";
@@ -35,5 +36,4 @@ export class CartComponent implements OnInit {
     console.log(this.confirmData.name);
     this.router.navigate(['/confirmation'])
   }
-
 }
